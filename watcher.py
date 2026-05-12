@@ -340,6 +340,23 @@ def run(dry_run: bool = False) -> None:
     save_state(state)
 
 
+def test_notify() -> None:
+    """Send a test notification to verify Telegram is wired up."""
+    now = datetime.now(LONDON_TZ).strftime("%Y-%m-%d %H:%M:%S %Z")
+    message = (
+        "✅ *Calcio Watch — Test Notification*\n\n"
+        "Telegram connection is working. "
+        "You'll be notified here when ticket signals are detected.\n\n"
+        f"🔗 [View page]({URL})\n"
+        f"🕐 {now}"
+    )
+    send_telegram(message)
+    print("Test notification sent.")
+
+
 if __name__ == "__main__":
-    dry = "--dry-run" in sys.argv
-    run(dry_run=dry)
+    if "--test-notify" in sys.argv:
+        test_notify()
+    else:
+        dry = "--dry-run" in sys.argv
+        run(dry_run=dry)
