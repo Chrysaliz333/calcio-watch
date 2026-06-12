@@ -298,3 +298,4 @@
 [2026-06-12 12:34:48 BST] OK — no new signals
 [2026-06-12 15:33:35 BST] OK — no new signals
 [2026-06-12 18:31:10 BST] ERROR — timed out
+[2026-06-12 20:51:48 BST] SKIP — backing off after error
